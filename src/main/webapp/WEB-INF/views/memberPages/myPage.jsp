@@ -123,7 +123,7 @@
 
         } else if (pw1 == pw2) {
             pwCheck.innerHTML = "비밀번호가 일치합니다."
-            pwCheck.style = "color: green"
+            pwCheck.style = "color: green" //
             submitBtn.disabled = false;
 
 
