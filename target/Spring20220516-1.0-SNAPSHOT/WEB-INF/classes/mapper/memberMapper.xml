@@ -10,6 +10,9 @@
         insert into member_table(id, memberId, memberPassword, memberName, memberAge, memberPhone)
         values (#{id}, #{memberId}, #{memberPassword}, #{memberName}, #{memberAge}, #{memberPhone})
     </insert>
+    <delete id="delete" parameterType="Long">
+        delete from member_table       where id = #{id};
+    </delete>
 
     <select id="findById" parameterType="String" resultType="member">
         select *

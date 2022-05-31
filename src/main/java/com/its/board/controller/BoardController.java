@@ -23,7 +23,6 @@ public class BoardController {
     @Autowired
     private CommentService commentService;
 
-    // 글쓰기 화면 요청
     @GetMapping("/save") // RequestMapping 적용
     public String saveForm(HttpSession session) {
         if (session.getAttribute("memberId") == null) {
@@ -33,12 +32,11 @@ public class BoardController {
         return "boardPages/saveFile"; //=> views/board/save.jsp
     }
 
-    // 글쓰기 처리
     @PostMapping("/save") //
     public String save(@ModelAttribute BoardDTO boardDTO) {
         boolean result = boardService.save(boardDTO);
         if (result) {
-            return "redirect:/board/findAll"; // => /board/findAll 주소 요청
+            return "redirect:/board/findAll";
         } else {
             return "boardPages/save-fail";
         }
@@ -59,14 +57,12 @@ public class BoardController {
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
         model.addAttribute("page", page);
-        //댓글 목록도 추가
         List<CommentDTO> commentDTOList = commentService.findAll(id);
         model.addAttribute("commentList", commentDTOList);
 
         return "boardPages/detail";
     }
 
-    // 비밀번호 체크 페이지
     @GetMapping("/passwordCheck")
     public String passwordCheck(@RequestParam("id") Long id, Model model) {
         BoardDTO boardDTO = boardService.findById(id);
@@ -74,14 +70,12 @@ public class BoardController {
         return "boardPages/passwordCheck";
     }
 
-    // 삭제 처리
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
         boardService.delete(id);
         return "redirect:/board/findAll";
     }
 
-    // 수정 화면 요청
     @GetMapping("/update")
     public String updateForm(@RequestParam("id") Long id, Model model) {
         BoardDTO boardDTO = boardService.findById(id);
@@ -89,20 +83,16 @@ public class BoardController {
         return "boardPages/update";
     }
 
-    // 수정 처리
     @PostMapping("/update")
     public String update(@ModelAttribute BoardDTO boardDTO) {
         boardService.update(boardDTO);
-        return "redirect:/board/detail?id=" + boardDTO.getId(); // 수정처리 후 해당 글의 상세페이지 요청
-    }
+        return "redirect:/board/detail?id=" + boardDTO.getId(); }
 
-    // 글작성화면(파일)
     @GetMapping("/saveFile")
     public String saveFileForm() {
         return "boardPages/saveFile";
     }
 
-    // 파일첨부 글작성 처리
     @PostMapping("/saveFile")
     public String saveFile(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.saveFile(boardDTO);
@@ -120,7 +110,6 @@ public class BoardController {
     }
 
 
-    //검색처리
     @GetMapping("/search")
     public String search(
                          @RequestParam(value = "searchType", required = false, defaultValue = "1") String searchType,

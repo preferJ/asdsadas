@@ -28,7 +28,6 @@
             location.href = "/board/delete?id=${board.id}";
         } else {
             alert("비밀번호 불일치!!!!!");
-            // 일치하지 않으면 상세조회 화면으로
             location.href = "/board/detail?id=${board.id}";
         }
     }
