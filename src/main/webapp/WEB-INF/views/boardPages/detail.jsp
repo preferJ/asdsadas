@@ -164,6 +164,7 @@
             <th>내용</th>
             <th>작성시간</th>
         </tr>
+<%--        예를들어서 --%>
         <C:forEach items="${commentList}" var="comment">
             <tr>
                 <td>${comment.id}</td>
