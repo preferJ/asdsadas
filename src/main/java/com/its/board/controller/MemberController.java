@@ -107,5 +107,12 @@ public class MemberController {
         return "memberPages/admin";
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id){
+        System.out.println(id);
+        memberService.delete(id);
+        return "redirect:/member/admin";
+    }
+
 
 }

@@ -30,7 +30,7 @@ public class BoardController {
 
             return "memberPages/login";
         }
-        return "boardPages/save"; //=> views/board/save.jsp
+        return "boardPages/saveFile"; //=> views/board/save.jsp
     }
 
     // 글쓰기 처리

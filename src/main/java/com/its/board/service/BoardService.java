@@ -68,7 +68,7 @@ public class BoardService {
         boardRepository.saveFile(boardDTO); // 6.
     }
 
-    private static final int PAGE_LIMIT = 3;
+    private static final int PAGE_LIMIT = 5;
     private static final int BLOCK_LIMIT = 3;
 
     public List<BoardDTO> pagingList(int page) {
