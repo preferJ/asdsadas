@@ -136,14 +136,7 @@ public class BoardController {
 //        dataType: "json", // 리턴받을 데이터 형식
 //            })
 
-    @PostMapping("/comment/save")
-    public String commentSave(@RequestParam long id, @RequestParam String commentWriter, @RequestParam String commentContents, Model model) {
-        String a = "Asdasdsadasdasdsad";
-        model.addAttribute("a", a);
 
-        return a;
-
-    }
 
 
 }

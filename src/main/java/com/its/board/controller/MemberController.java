@@ -37,9 +37,8 @@ public class MemberController {
     }
 
     @PostMapping("/saveReq")
-    public String saveReq(@ModelAttribute MemberDTO memberDTO, Model model) {
+    public String saveReq(@ModelAttribute MemberDTO memberDTO) {
         memberService.saveReq(memberDTO);
-        model.addAttribute("memberId", memberDTO.getMemberId());
         return "memberPages/login";
     }
 
@@ -47,7 +46,6 @@ public class MemberController {
     public String update(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session) {
 
         memberService.update(memberDTO);
-        model.addAttribute("memberId", memberDTO.getMemberId());
         return "redirect:/member/myPage";
 
     }
@@ -109,7 +107,6 @@ public class MemberController {
 
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id){
-        System.out.println(id);
         memberService.delete(id);
         return "redirect:/member/admin";
     }
