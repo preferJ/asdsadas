@@ -28,7 +28,7 @@ public class CommentController {
         return newCommentDTOList;
     }
 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public @ResponseBody List<CommentDTO> save(@RequestParam("commentId") long id,
             @RequestParam("boardId") long boardId, Model model) {
 

@@ -98,9 +98,7 @@ public class MemberController {
         List<MemberDTO> memberDTOList = memberService.findAll();
         List<CommentDTO> commentDTOList = commentService.findAll();
 
-        model.addAttribute("boardDTOList", boardDTOList);
         model.addAttribute("memberDTOList", memberDTOList);
-        model.addAttribute("commentDTOList", commentDTOList);
 
         return "memberPages/admin";
     }

@@ -163,7 +163,6 @@
             <th>작성자</th>
             <th>내용</th>
             <th>작성시간</th>
-            <th>삭제</th>
         </tr>
         <C:forEach items="${commentList}" var="comment">
             <tr>
@@ -172,7 +171,6 @@
                 <td>${comment.commentContents}</td>
                 <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
                                     value="${comment.commentCreatedDate}"></fmt:formatDate></td>
-                <td><a href="/comment/delete?id=${comment.id}">삭제</a></td>
 
 
 
@@ -206,13 +204,16 @@
                 output += "<tr><th>댓글번호</th>";
                 output += "<th>작성자</th>";
                 output += "<th>내용</th>";
-                output += "<th>작성시간</th></tr>";
+                output += "<th>작성시간</th>";
+                output += "<th>삭제</th>" +
+                    "</tr>";
                 for (let i in result) {
                     //     output += "<tr>";
                     output += "<td>" + result[i].id + "</td>";
                     output += "<td>" + result[i].commentWriter + "</td>";
                     output += "<td>" + result[i].commentContents + "</td>";
                     output += "<td>" + moment(result[i].commentCreatedDate).format("YYYY-MM-DD HH:mm:ss") + "</td>";
+
 
                     output += "</tr>";
 
